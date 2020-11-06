@@ -15,6 +15,13 @@ using PushVectors, Test, BenchmarkTools
     @test size(v) == (1, )
     @test v == Int[1]
 
+    # pop one element
+    push!(v, 2)
+    @test @inferred(pop!(v)) == 2
+    @test v.len == 1 == length(v)
+    @test size(v) == (1, )
+    @test v == Int[1]
+
     # empty
     @test empty!(v) == Int[] == v
 

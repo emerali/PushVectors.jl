@@ -50,6 +50,12 @@ function Base.push!(v::PushVector, x)
     v
 end
 
+function Base.pop!(v::PushVector)
+    x = v.parent[v.len]
+    v.len -= 1
+    x
+end
+
 Base.empty!(v::PushVector) = (v.len = 0; v)
 
 function Base.append!(v::PushVector, xs)
