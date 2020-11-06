@@ -51,6 +51,7 @@ function Base.push!(v::PushVector, x)
 end
 
 function Base.pop!(v::PushVector)
+    isempty(v) || ArgumentError("vector must be non-empty")
     x = v.parent[v.len]
     v.len -= 1
     x

@@ -8,6 +8,9 @@ using PushVectors, Test, BenchmarkTools
     @test v.parent isa Vector{Int}
     @test v == Int[]
 
+    # test error when popping from empty PushVector
+    @test_throws ArgumentError pop!(v)
+
     # add one element
     push!(v, 1)
     @test @inferred(v[1]) == 1
